@@ -12,18 +12,21 @@ class DriverAdmin(UserAdmin):
     )
 
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ("Additional info", {"fields": ("license_number",)}),
+        ("Additional info", {
+            "fields": ("license_number",)
+        }),
     )
 
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
     list_filter = [
-        "manufacturer",
+        "manufacturer", "drivers"
     ]
     search_fields = [
-        "model",
+        "manufacturer__name", "model",
     ]
+
 
 
 admin.site.register(Manufacturer)
