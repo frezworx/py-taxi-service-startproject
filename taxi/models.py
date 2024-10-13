@@ -9,8 +9,6 @@ class Driver(AbstractUser):
     license_number = models.CharField(
         max_length=63,
         unique=True,
-        blank=True,
-        null=True
     )
 
     class Meta:
