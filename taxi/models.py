@@ -9,11 +9,7 @@ class Driver(AbstractUser):
     license_number = models.CharField(max_length=63, unique=True)
 
     def __str__(self):
-        return (
-            f"First name: {self.first_name}, "
-            f"last name: {self.last_name}, "
-            f"license number: {self.license_number}"
-        )
+        return self.license_number
 
 
 class Manufacturer(models.Model):
@@ -21,7 +17,7 @@ class Manufacturer(models.Model):
     country = models.CharField(max_length=63)
 
     def __str__(self) -> str:
-        return f"Name: {self.name}, " f"country: {self.country}"
+        return self.name
 
 
 class Car(models.Model):
@@ -35,4 +31,4 @@ class Car(models.Model):
     )
 
     def __str__(self) -> str:
-        return f"model: {self.model}, drivers: {self.drivers}"
+        return self.model
