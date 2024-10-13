@@ -11,11 +11,11 @@ class Driver(AbstractUser):
         unique=True,
     )
 
-    class Meta:
-        ordering = ["license_number", ]
-
     def __str__(self):
         return self.license_number
+
+    class Meta:
+        ordering = ["license_number", ]
 
 
 class Manufacturer(models.Model):
@@ -36,10 +36,10 @@ class Car(models.Model):
         related_name="cars"
     )
 
-    class Meta:
-        ordering = ["model", ]
-        verbose_name = "Car"
-        verbose_name_plural = "Cars"
-
     def __str__(self) -> str:
         return self.model
+
+    class Meta:
+        ordering = ["model", ]
+        verbose_name = "car"
+        verbose_name_plural = "cars"
